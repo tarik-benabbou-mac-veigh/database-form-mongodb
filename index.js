@@ -17,7 +17,7 @@ mongoose.connect('mongodb://localhost:27017/ma_base_de_donnees')
     .then(()=> console.log(`✅ Connexion à MongoDB réussie!`))
     .catch(err => console.error(`Erreur de connexion à MongoDB`, err));
 
-    app.post('/add-user', async (req,res)=>{
+app.post('/add-user', async (req,res)=>{
     try{
         console.log(req.body);
         const newUser = await User.create(req.body);
@@ -27,6 +27,7 @@ mongoose.connect('mongodb://localhost:27017/ma_base_de_donnees')
     }
 
 });
+
 app.listen(port, ()=>{
     console.log(`Serveur connecté sur le port ${port}`);
 });
